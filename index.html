@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DEZA</title>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     * {
       margin: 0;
@@ -16,6 +20,7 @@
       font-family: 'Arial', sans-serif;
       color: white;
       overflow-y: scroll;
+      background: #000;
     }
 
     #particles-js {
@@ -61,6 +66,9 @@
     }
 
     .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: transparent;
       border: 2px solid white;
       color: white;
@@ -71,12 +79,18 @@
       font-size: 14px;
       width: 70%;
       max-width: 250px;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+      gap: 8px;
     }
 
     .button:hover {
       background: white;
       color: black;
+    }
+
+    .button i {
+      font-size: 18px;
     }
   </style>
 </head>
@@ -92,10 +106,18 @@
     <div class="username">@DEZA</div>
     <p>Hi, I am Andiza. I live in Indonesia. I am 21 years old, I like reading books, listening to music, and watching anime</p>
 
-    <a href="https://www.instagram.com/zeeskuy77?igsh=dmNkcm5ydG1udm1q" class="button">Instagram</a>
-    <a href="https://t.me" class="button">Telegram</a>
-    <a href="https://wa.me/6283142631639?text=Halo%20there" class="button">WhatsApp</a>
-    <a href="https://discord.gg/ScbkSXq8" class="button">Discord</a>
+    <a href="https://www.instagram.com/zeeskuy77?igsh=dmNkcm5ydG1udm1q" class="button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://t.me" class="button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+    <a href="https://wa.me/6283142631639?text=Halo%20there" class="button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="https://discord.gg/ScbkSXq8" class="button" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-discord"></i> Discord
+    </a>
   </div>
 
   <!-- Script Waktu -->
