@@ -20,7 +20,6 @@
       font-family: 'Arial', sans-serif;
       color: white;
       overflow-y: scroll;
-      /* background dihapus supaya animasi particles terlihat */
     }
 
     #particles-js {
@@ -65,32 +64,36 @@
       margin-bottom: 10px;
     }
 
-    .button {
+    /* Sosmed 2 baris layout */
+    .social-buttons {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 20px 40px; /* baris 20px jarak, kolom 40px jarak */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-button {
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: transparent;
-      border: 2px solid white;
       color: white;
-      padding: 10px 15px;
-      margin: 8px 0;
-      border-radius: 12px;
       text-decoration: none;
-      font-size: 14px;
-      width: 70%;
-      max-width: 250px;
-      transition: background 0.3s, color 0.3s;
+      font-size: 16px;  /* teks agak lebih besar */
+      gap: 12px;
+      transition: color 0.3s;
       cursor: pointer;
-      gap: 8px;
+      user-select: none;
     }
 
-    .button:hover {
-      background: white;
-      color: black;
+    .social-button i {
+      font-size: 32px;  /* icon lebih besar */
+      min-width: 32px;
+      text-align: center;
     }
 
-    .button i {
-      font-size: 18px;
+    .social-button:hover {
+      color: #1DA1F2; /* Hover color biru muda */
     }
   </style>
 </head>
@@ -102,23 +105,24 @@
     <p>Waktu saat ini:</p>
     <p id="time">00:00:00</p>
 
-    <!-- Profil gambar dari file lokal di folder images -->
     <img class="profile-img" src="profile.jpg" alt="Profile" />
     <div class="username">@DEZA</div>
     <p>Hi, I am Andiza. I live in Indonesia. I am 21 years old, I like reading books, listening to music, and watching anime</p>
 
-    <a href="https://www.instagram.com/zeeskuy77?igsh=dmNkcm5ydG1udm1q" class="button" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i> Instagram
-    </a>
-    <a href="https://t.me" class="button" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-telegram"></i> Telegram
-    </a>
-    <a href="https://wa.me/6283142631639?text=Halo%20there" class="button" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-    <a href="https://discord.gg/ScbkSXq8" class="button" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-discord"></i> Discord
-    </a>
+    <div class="social-buttons">
+      <a href="https://www.instagram.com/zeeskuy77?igsh=dmNkcm5ydG1udm1q" target="_blank" rel="noopener noreferrer" class="social-button">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-button">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://wa.me/6283142631639?text=Halo%20there" target="_blank" rel="noopener noreferrer" class="social-button">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://discord.gg/ScbkSXq8" target="_blank" rel="noopener noreferrer" class="social-button">
+        <i class="fab fa-discord"></i> Discord
+      </a>
+    </div>
   </div>
 
   <!-- Script Waktu -->
