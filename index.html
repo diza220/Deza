@@ -37,6 +37,8 @@
       padding: 40px 20px;
       text-align: center;
       min-height: 100vh;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -64,12 +66,11 @@
       margin-bottom: 10px;
     }
 
-    /* Sosmed 2 baris layout */
     .social-buttons {
       margin-top: 20px;
       display: grid;
       grid-template-columns: repeat(2, auto);
-      gap: 20px 40px; /* baris 20px jarak, kolom 40px jarak */
+      gap: 20px 40px;
       justify-content: center;
       align-items: center;
     }
@@ -79,7 +80,7 @@
       align-items: center;
       color: white;
       text-decoration: none;
-      font-size: 16px;  /* teks agak lebih besar */
+      font-size: 16px;
       gap: 12px;
       transition: color 0.3s;
       cursor: pointer;
@@ -87,13 +88,57 @@
     }
 
     .social-button i {
-      font-size: 32px;  /* icon lebih besar */
+      font-size: 32px;
       min-width: 32px;
       text-align: center;
     }
 
     .social-button:hover {
-      color: #1DA1F2; /* Hover color biru muda */
+      color: #1DA1F2;
+    }
+
+    /* Tombol intro transparan */
+    .intro-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .intro-button:hover {
+      background-color: #000000;
+      border-color: #FFFFFF;
+      color: white;
+    }
+
+    /* Kotak intro */
+    .intro-text {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s ease, opacity 0.6s ease, padding 0.6s ease;
+      margin-top: 20px;
+    }
+
+    .intro-text.show {
+      max-height: 300px;
+      opacity: 1;
+      padding: 20px;
+    }
+
+    .intro-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      max-width: 400px;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -107,7 +152,16 @@
 
     <img class="profile-img" src="https://files.catbox.moe/i40qby.jpg" alt="Profile" />
     <div class="username">@DEZA</div>
-    <p>Hi, I am Andiza. I live in Indonesia. I am 21 years old, I like reading books, listening to music, and watching anime</p>
+
+    <!-- Tombol intro transparan -->
+    <button class="intro-button" onclick="toggleIntro()">show-introduction</button>
+
+    <!-- Intro dalam kotak -->
+    <div id="intro" class="intro-text">
+      <div class="intro-box">
+        <p>Hi, I am Andiza. I live in Indonesia. I am 21 years old, I like reading books, listening to music, and watching anime.</p>
+      </div>
+    </div>
 
     <div class="social-buttons">
       <a href="https://www.instagram.com/deza_xst?igsh=dmNkcm5ydG1udm1q" target="_blank" rel="noopener noreferrer" class="social-button">
@@ -125,7 +179,7 @@
     </div>
   </div>
 
-  <!-- Script Waktu -->
+  <!-- Script waktu -->
   <script>
     function updateTime() {
       const now = new Date();
@@ -134,9 +188,14 @@
     }
     setInterval(updateTime, 1000);
     updateTime();
+
+    function toggleIntro() {
+      const intro = document.getElementById("intro");
+      intro.classList.toggle("show");
+    }
   </script>
 
-  <!-- Particles.js -->
+  <!-- Particles -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
@@ -148,16 +207,8 @@
           stroke: { width: 0, color: "#000000" },
           polygon: { nb_sides: 5 }
         },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: false }
-        },
-        size: {
-          value: 3,
-          random: true,
-          anim: { enable: false }
-        },
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
         line_linked: {
           enable: true,
           distance: 150,
